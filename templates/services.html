@@ -1,0 +1,26 @@
+{% extends "index.html"%}
+{%block meta %}
+    <meta name="description" content="Discover the web development services offered by Jamal Kerroumi: website creation, backend development, and more.">
+    <meta name="keywords" content="web development services, Flask developer, freelance services, backend, frontend, Jamal Kerroumi">
+{% endblock %}
+{%block title%}services{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="../static/css/services.css">
+{% endblock %}
+{%block main%}
+<section class="s6">
+  <div class="h">
+    <h2>What I Can Do?</h2>
+  <p>Here are some of the services I offer as a developer:</p>
+  </div>
+  {% for service in services%}
+    <div class="services-container">
+    <div class="service-card">
+      <img src="{{service['img']}}" alt="{{service['img']}}">
+      <h3>{{service['title']}}</h3>
+      <p>{{service['description']}}</p>
+    </div>
+  {%endfor%}
+  </div>
+</section>
+{%endblock%}

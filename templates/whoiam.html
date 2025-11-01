@@ -1,0 +1,48 @@
+{% extends "index.html"%}
+{%block meta %}
+    <meta name="description" content="Learn more about Jamal Kerroumi's background, education, technical skills, and development journey.">
+    <meta name="keywords" content="bout Jamal Kerroumi, developer bio, coding skills, education, experience">
+    {% endblock %}
+{%block title%}whoiam{% endblock %}
+{%block extra_css%}
+<link rel="stylesheet" href="{{url_for('static', filename='css/who.css')}}">
+{% endblock%}
+{%block main%}
+<section id="s1">
+  <div>
+    <h1>Who Am I?</h1>
+    <span>
+      Hello! My name is <strong><i>Jamal Kerroumi</i></strong>,
+      a passionate Web Developer
+      specialized in building modern,
+      responsive, and user-friendly
+      websites. I love solving problems
+      and bring createive ideads to life with code.
+    </span>
+  </div>  
+  <img src="{{url_for('static', filename='images/profil1.png')}}" alt="" srcset="">
+</section>
+<section class="s2">
+    <img src="../static/images/hero2.png" alt="" srcset="">
+    <div>
+    <h1>What I Know?</h1>
+      <p>
+    During my studies at the <strong><a href="">CMC</a></strong> Institute,
+    I learned how to work with <strong>Algorithm, Python, HTML, CSS, JavaScript/React, PHP/Laravel, and MySQL</strong>, and gained experience 
+    in creating structured projects and collaborating in a professional environment.
+  </p>
+  <br>
+  <p>
+    Alongside my formal training, I have been learning independently. Through self-study and practice, 
+    I explored modern web technologies such as <strong>Flask, Java, Sqlite, Linux Basics commands</strong>. 
+  </p>
+  <br>
+  <p>
+    This mix of institute training and self-learning allowed me to develop both technical knowledge 
+    and the ability to adapt quickly to new tools and technologies.
+  </p>
+    </div>
+</section>
+{%endblock%}
+{%block script%}
+{%endblock%}

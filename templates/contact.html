@@ -1,0 +1,38 @@
+{% extends "index.html"%}
+{%block meta %}
+    <meta name="description" content="Contact Jamal Kerroumi for freelance opportunities, collaborations, or questions via the contact form.">
+    <meta name="keywords" content="contact Jamal Kerroumi, freelance developer, web developer contact, send message">
+{% endblock %}
+{%block title%}contact{% endblock %}
+{%block extra_css%}
+    <link rel="stylesheet" href="../static/css/contact.css">
+{%endblock%}
+{%block main%}
+    <section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <p>If you have any project in mind or just want to say hi, feel free to contact me!</p>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <p><strong>Email:</strong> jamalkerroumi064@gmail.com</p>
+      <p><strong>Phone:</strong> +212690533140</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+    </div>
+
+    <form class="contact-form" method="POST" action="/SendMessage">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  </div>
+</section>
+{%endblock%}

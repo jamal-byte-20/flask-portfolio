@@ -1,0 +1,194 @@
+body{
+    color: white;
+    display: block;
+}
+search{
+    margin: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content:space-around;
+}
+search input{
+    width: 85%;
+    border: none;
+    border-radius: 6px;
+    height: 35px;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding-left: 5px;
+    font-size: 1.1rem;
+    transition: 0.1s ease;
+    outline: 2px solid rgb(80, 80, 80);
+}
+search input:focus{
+    outline-color: rgb(1, 89, 105);
+    scale: 1.01;
+}
+
+search button{
+    font-size: 1.8rem;
+    background-color: #0097c5;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: none;
+    padding: 0 11px;
+    transition: 0.3s;
+}
+search button:hover{
+    background-color: #00a6d8;
+}
+search button:active{
+    background-color: #006888;
+}
+section{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    text-align: center;
+}
+section form{
+    transition: height 0.4s ease-out;
+    background-color: rgb(24, 24, 24);
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 0;
+    margin-top: -10px;
+    
+}
+.active{
+    transition: height 0.4s ease-in-out;
+    height: auto;
+    display: flex;
+    padding: 20px 0px;
+    padding-left: 15px;
+
+}
+section form input, textarea{
+    border: none;
+    border-radius: 6px;
+    height: 35px;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding-left: 5px;
+    font-size: 1.1rem;
+    transition: 0.1s ease;
+    outline: 2px solid rgb(80, 80, 80);
+    width: 90%;
+}
+section form textarea{
+    height: auto;
+    resize: vertical;
+}
+section form img{
+    height: 90px;
+    width: 100px;
+    object-fit: cover;
+}
+
+section form input:valid, textarea:valid{
+    outline-color: rgba(59, 175, 36, 0.596);
+}
+section form input:invalid, textarea:invalid{
+     outline-color: rgba(175, 36, 36, 0.616);
+}
+label::after{
+    position: absolute;
+    content: "";
+    top: 20%;
+    left: 100%;
+    width: 100%;
+}
+#file:invalid ~ label::after{
+    content: "file invalid";
+    color: rgb(202, 31, 31);
+}
+#file:valid ~ label::after{
+    content: "file is valid";
+    color: rgb(79, 202, 31);
+}
+section form label{
+    position: relative;
+    width: 130px;
+    outline: 2px solid rgb(80, 80, 80);
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 5px;
+    background-color: rgb(44, 44, 44);
+    font-weight: bold;
+}
+section form div{
+    display: flex;
+    gap: 10px;
+}
+section form div button{
+    height: 30px;
+    width: 90px;
+    font-size: 1.1rem;
+    background-color: rgb(80, 80, 80);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+section form div button:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+article{
+    display: flex;
+    justify-content: space-around;
+    background: rgb(24, 24, 24);
+    margin: 0 10px;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+article img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
+article button{
+    height: 30px;
+    width: 30px;
+    font-size: 1.1rem;
+    background-color: rgb(80, 80, 80);
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+article span{
+    width: 210px;
+}
+article .delete{
+    background-color: rgb(223, 40, 40);
+}
+article .edit{
+    background-color: rgb(28, 121, 77);
+}
+article a{
+    width: 35px;
+    font-size: 1.1rem;
+    background-color: rgb(80, 80, 80);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 6px 0;
+}
+@media (min-width: 720px){
+    search input{
+        width: 95%;
+    }
+    section form input,textarea{
+        width: 50%;
+    }
+}

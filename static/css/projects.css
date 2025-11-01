@@ -1,0 +1,83 @@
+.s5{
+    box-shadow: 1px 1px 5px rgb(211, 211, 211);
+    margin: 3px 6px 5px 6px;
+    border-radius: 10px;
+    padding: 60px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.s5 .h{
+    margin: 10px 0 25px 0;
+}
+.s5 .h h2{
+    margin: 10px 0;
+}
+.s5 .card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.s5 .card-container .project-card{
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 290px;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.s5 .card-container .project-card img {
+   width: 170px;
+   height: 170px;
+   margin-bottom: 15px;
+   width: 98%;
+   transition: 0.5s;
+   border-radius: 7px;
+   object-fit: cover;
+}
+.s5 .card-container .project-card h3{
+    margin-bottom: 5px;
+}
+.s5 .card-container .project-card p{
+    margin: 5px 0;
+    text-align: left;
+}
+.s5 .card-container .project-card .links{
+    margin-top: 15px;
+}
+.s5 .card-container .project-card .links a{
+    text-decoration: none;
+    color: black;
+    width: 100px;
+    padding:5px 0;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;z-index: 1;
+    background-color: #ececec;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.5s ease-out;
+}
+.s5 .card-container .project-card .links a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #0057b3a9;
+    height: 100%;
+    width: 0%;
+    z-index: -1;
+    border-radius: 30px;
+    transition: width 0.5s ease-in-out;
+}
+.s5 .card-container .project-card .links a:hover::after{
+    width: 100%;
+}
+.s5 .card-container .project-card .links a:hover{
+    color: white;
+}

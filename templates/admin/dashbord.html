@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Admin Dashboard{%endblock%}</title>
+    <link rel="stylesheet" href="../../static/css/admin/dash.css">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+{%block main%}
+    <header>
+        <a href="/admin/logout" class="out">&#x2B05</a>
+        <h2>Admin Dashboard</h2>
+    </header>
+    <div class="content">
+        <h2>Welcome, <span>Admin</span></h2>
+        <p>Use the menu above to manage your portfolio content.</p>
+    </div>
+    <menu>
+        <a href="/admin/projmanage">Manage Projects</a>
+        <a href="/admin/sermanage">Manage Services</a>
+    </menu>
+{%endblock%}
+{% block script%}
+<script>
+        let out = document.querySelector(".out");
+        out.addEventListener('click',(e)=>{
+            c = confirm("are you sure, want to log out?")
+            if(!c){
+                e.preventDefault()
+            }
+        })
+    </script>
+{%endblock%}
+    
+</body>
+</html>

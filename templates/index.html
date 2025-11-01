@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block meta %}
+    <meta name="description" content="Welcome to the portfolio of Jamal Kerroumi, full-stack web developer. Discover skills, technologies, and download the CV.">
+    <meta name="keywords" content="Jamal Kerroumi, web developer, personal portfolio, full-stack developer, download CV, home page">
+    {% endblock %}
+    <title>{%block title%}portfolio{%endblock%}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="dark">
+    <header>
+        <div class="logo">
+            <span class="ja">Ja</span>
+            <span class="mal">Mal</span>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('whoiam') }}">Whoami</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('project') }}">Projects</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <div class="menu-toggle" id="menu">&#9776</div>
+    </header>
+    <main>
+        {%block main%}
+            <section id="s0">
+                <div class="text">
+              <span> I'm <em>Jamal</em> </span>
+                Web Developer
+                <br>
+                From
+                Morocco
+                <div>
+                    <a href="{{url_for('static', filename='files/Jamal_Kerroumi_CV.pdf')}}" download="Jamal_Kerroumi_CV.pdf">Download CV</a>
+                </div>
+            </div>
+            <div class="img">
+                <img src="{{url_for('static', filename='images/bg.png')}}">
+            </div>
+    
+            </section>
+        {%endblock%}
+    </main>
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+    <script src="../static/js/index.js"></script>
+    {% block script%}{%endblock%}
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+
+.s1{
+    transition: all 1s ease;
+    height: 97vh;
+    gap: 20px;
+    box-shadow: 1px 1px 5px rgb(211, 211, 211);
+    margin: 3px 7px 5px 7px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.s1 img{
+    align-self: flex-end;
+    float: right;
+    height: 400px;
+    filter: blur(0.5px);
+    filter: grayscale(70%);
+}
+.s1 div h1{
+    margin-bottom: 10px;
+    text-align: center;
+}
+.s1 div{
+    align-self: center;
+    padding-left: 5%;
+}
+.s1  span{
+    font-size: 1.5rem;
+}
+.s1  span{
+    padding-left: 1%;
+}
+.s1  span strong{
+    color: #00a7b3;
+}
+.s2{
+    transition: 1s ease-in;
+    height: 95vh;
+    box-shadow: 1px 1px 5px rgb(211, 211, 211);
+    margin: 3px 7px 5px 7px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-top: 10%;
+    padding-left: 2%;
+    padding-right: 1px;
+}
+.s2 img{
+    float: left;
+    height: 250px;
+    filter: grayscale(50%);
+    margin: -40px 20px 1px -15px;
+    filter: drop-shadow(0 0 0.09px var(--text-color));
+}
+.s2 div{
+    font-size: large;
+    padding-bottom: 12px;
+}
+
+.s2 div h1{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.s2 div strong{
+    color: #0089b3a6;
+}
+.s2 div a{
+    color: rgba(207, 179, 21, 0.692);
+}
+
+
+
+@media (max-width: 568px){
+    .s1 img{
+        height: 340px;
+    }
+    .s1  span{
+    font-size: 1.2rem;
+}
+    .s2 div{
+    font-size: 1.1rem;
+    padding-bottom: 12px;
+    }
+    .s2 img{
+    height: 200px;
+}
+}

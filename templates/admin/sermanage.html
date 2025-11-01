@@ -1,0 +1,133 @@
+{% extends "admin/dashbord.html"%}
+{%block title%}Admin Services{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="../../static/css/admin/sermanage.css">
+{% endblock %}
+{% block main%}
+        <search>
+            <input type="search" id="search_input" placeholder="search...">
+            <button id="add">+</button>
+        </search>
+        <section>
+            <form action="/admin/addService" method="post" enctype="multipart/form-data">
+                <input type="text" placeholder="title" name="title" required>
+                <textarea placeholder="description" name="description" required></textarea>
+                <input type="file" id="file" name="img" accept="image/*" style="display: none;" required>
+                <label for="file">select image</label>
+                <div>
+                    <button type="submit">save</button>
+                    <button type="reset">reset</button>
+                </div>
+            </form>
+            {% for service in services %}
+                <article>
+                    <input type="hidden" id="id" value="{{service['id']}}">
+                    <input type="hidden" id="des" value="{{service['description']}}">
+                    <img src="{{service['img']}}" alt="">
+                    <span>{{service['title']}}</span>
+                    <button class="edit">&#9998</button>
+                    <button class="delete" id="delete">&#128465</button>
+                </article>
+            {% endfor %}
+        </section>
+{% endblock%}
+{%block script%}
+<script>
+       let search_input = document.querySelector("#search_input");
+       let section = document.querySelector("section");
+       search_input.addEventListener('input',()=>{
+        fetch(`/admin/search_service?sername=${search_input.value}`)
+        .then(res=> res.json())
+       .then(data => {
+            section.innerHTML = "";
+            if(data.length > 0){
+                data.forEach(element => {
+                section.innerHTML += `
+                <article>
+                    <input type="hidden" id="id" value=${element[0]}>
+                    <img src=${element[1]} alt="">
+                    <span>${element[2]}</span>
+                    <button class="edit">&#9998</button>
+                    <button class="delete">&#128465</button>
+                </article>
+                `
+            });
+            }else{
+                section.innerHTML = "<h1>NO SERVICE FOUND</h1>"
+            }
+       })
+       })
+       let add_btn = document.querySelector("#add");
+       let form = document.querySelector("form");
+       add_btn.addEventListener('click',()=>{
+            if(add_btn.textContent == "+"){
+                add_btn.textContent = "<"
+                add_btn.style.fontSize = "1.8rem";
+            }else{
+                add_btn.textContent = "+"
+                add_btn.style.fontSize = "2rem";
+            }
+            form.action = "/admin/addService"
+            form.innerHTML = `
+                <input type="text" placeholder="title" name="title" required>
+                <textarea placeholder="description" name="description" required></textarea>
+                <input type="file" id="file" name="img" accept="image/*" style="display: none;" required>
+                <label for="file">select image</label>
+                <div>
+                    <button type="submit">save</button>
+                    <button type="reset">reset</button>
+                </div>
+            `;
+            form.classList.toggle("active")
+       })
+       let delet = document.querySelectorAll("#delete")
+       for (del of delet){
+        del.addEventListener('click',({target})=>{
+            id = target.parentElement.querySelector("#id");
+            c = confirm("you want to delete it, are you sure?")
+            if(c){
+                window.location = `/admin/delete_service?id=${id.value}`
+            }
+        })
+       }
+
+
+
+       let edit = document.querySelectorAll(".edit")
+       for (e of edit){
+        e.addEventListener('click',({target})=>{
+            id = target.parentElement.querySelector("#id");
+            img = target.parentElement.querySelector("img");
+            title = target.parentElement.querySelector("span").textContent;
+            des = target.parentElement.querySelector("#des").value;
+
+
+            form.innerHTML = `
+                <input type="hidden" name="id" value=${id.value} >
+                <input type="text" placeholder="title" name="title" value="${title}" required>
+                <textarea placeholder="description" name="description" required>${des}</textarea>
+                <img src=${img.src}>
+                <input type="file" id="file" name="img" accept="image/*" style="display: none;">
+                <label for="file">update image</label>
+                <div>
+                    <button type="submit">save</button>
+                    <button type="reset">reset</button>
+                </div>
+            `;
+            form.action = "/admin/editService";
+            form.classList.toggle("active")
+            i = form.querySelector("img");
+            f = form.querySelector("#file");
+            f.addEventListener('change',({target})=>{
+                const file = target.files[0];
+                const reader = new FileReader();
+                reader.onload = ()=>{
+                    i.src = reader.result;
+                };
+                reader.readAsDataURL(file);
+            })
+        })
+       }
+
+</script>
+{%endblock%}

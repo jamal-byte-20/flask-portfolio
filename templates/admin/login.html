@@ -1,0 +1,23 @@
+{% extends "admin/dashbord.html"%}
+{%block title%}Admin Login{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="../../static/css/admin/login.css">
+{% endblock %}
+    {% block main%}
+        <h1>Hi, Admin</h1>
+    <form method="POST">
+        <fieldset>
+            <legend>login</legend>
+            <input type="text" placeholder="user" name="username"><br>
+            <input type="password" placeholder="password" name="password"><br>
+            <div><button type="submit">login</button></div>
+        </fieldset>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <span style="color: red; list-style: none;">{{ message }} &#128544</span>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% endblock%}
